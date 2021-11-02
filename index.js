@@ -29,9 +29,11 @@ mongoose.connect(('mongodb+srv://kelas_A:Uaba7KLoO0BqO7xn@cluster0.imabx.mongodb
 
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
+const ThingtodoRouter = require('./routes/Thingtodo');
 
 app.use('/', indexRouter);
 app.use('/account', accountRouter);
+app.use('/Thingtodo',ThingtodoRouter);
 
 app.listen('3000', ()=> {
     console.log('Server sudah berjalan di port 3000')
