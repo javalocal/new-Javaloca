@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Mybooking-Travel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+          <link rel="stylesheet" href="tamplate_1.css">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+</head>
+<body>
+    <header>
+       <div class="container-fluid p-0">
+        <%- include('../layouts/navbar.ejs'); %>
+       </div>
+    </header>
+    <h2 class="text-center">My Booking</h2>
+    <br>
+
+    <div class="container-fluid p-5">
+        <div class="row mb-4">
+        	<div class="col mx-3">
+            	<h4 class="my-2">Hotel & villa</h4>
+                <table class="table" data-toggle="table" data-pagination="true" data-search="true">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th data-sortable="true">Nama Customers</th>
+                      <th data-sortable="true">Nama Hotel</th>
+                      <th data-sortable="true">Tanggal cek-in</th>
+                      <th data-sortable="true">Tanggal cek-out</th>
+                      <th scope="col">Alamat Hotel </th>
+                      <th scope="col">Voucher </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Lorem Impsum</td>
+                      <td>Grand Mahakam</td>
+                      <td>25/12/21</td>
+                      <td>26/12/21</td>
+                      <td>Jakarta</td>
+                      <td><a href="voucherch_hotel.html">Link</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Lorem Impsum</td>
+                      <td>Ibis Budget</td>
+                      <td>30/12/21</td>
+                      <td>01/01/22</td>
+                      <td>Bandung</td>
+                      <td>Link</td>
+                    </tr>
+                   
+                  </tbody>
+              </table>
+            </div>
+        </div>
+    
+<br><br>
+    <div class="row mb-4">
+      <div class="col mx-3">
+          <h4 class="my-2">Airplane & train</h4>
+            <table class="table" data-toggle="table" data-pagination="true" data-search="true">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th data-sortable="true">Nama Customers</th>
+                  <th data-sortable="true">Nama airplane/train</th>
+                  <th data-sortable="true">Tanggal</th>
+                  <th data-sortable="true">Jam</th>
+                  <th data-sortable="true">Asal</th>
+                  <th data-sortable="true">Tujuan</th>
+                  <th scope="col">Voucher </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Lorem Impsum</td>
+                  <td>Sriwiaja</td>
+                  <td>25/12/21</td>
+                  <td>12:00 pm</td>
+                  <td>Jakarta, Soekarno Hatta CGK</td>
+                  <td>Semarang, Jendral Ahmad SRG </td>
+                  <td><a href="Voucher_pesawat.html">Link</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Impsum bin lorem</td>
+                  <td>Gajayana</td>
+                  <td>30/12/21</td>
+                  <td>13:37 pm</td>
+                  <td>Malang, Malang kotalama</td>
+                  <td>Jakarta, Gambir</td>
+                  <td><a href="Voucher_kereta.html">Link</a></td>
+                </tr>
+               
+              </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer.ejs'); %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>  
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          
+</body>
+</html>
