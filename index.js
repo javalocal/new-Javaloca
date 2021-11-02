@@ -17,6 +17,16 @@ app.use( (req, res, next) => {
     res.locals.isLoggedIn = req.session.isLoggedIn;
     next();
 })
+
+mongoose.connect(('mongodb+srv://kelas_A:Uaba7KLoO0BqO7xn@cluster0.imabx.mongodb.net/dazzled_a?retryWrites=true&w=majority'), (err, res) => {
+    if (err) {
+        console.error(err);
+    }
+    else {
+        console.log('Database terhubung!')
+    }
+})
+
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
 
