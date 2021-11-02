@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Faq-Javaloca</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+          <link rel="stylesheet" href="tamplate_1.css">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+          <style>
+            .warna{
+              color: black;
+            }
+          </style>
+</head>
+<body>
+    <header>
+       <div class="container-fluid p-0">
+        <%- include('../layouts/navbar.ejs'); %>
+       </div>  
+    </header>
+    <h2 class="text-center">Faq</h2>
+   <br>
+     <div class="accordion" id="accordionExample">
+       <div class="card">
+         <div class="card-header" id="headingOne">
+           <h2 class="mb-0">
+             <button class="btn btn-link btn-block text-left collapsed textfaq warna" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+               Bagaimana cara pesan tiket dengan javaloca?
+             </button>
+           </h2>
+         </div>
+     
+         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+           <div class="card-body">
+             <h6><b>1. login</b></h6>
+             <p>Login terlebih dahulu jika sudah mempunyai akun, jika belum anda dapat membuat akun terlebih dahulu</p>
+             <br>
+             <h6><b>2. pilih menu</b></h6>
+             <p>setelah login anda dapat memilih menu transport, pilihlah jenis kendaraan yang ingin anda pesan</p>
+             <br>
+             <h6><b>3. pilih tanggal dan tujuan</b></h6>
+             <p>pilihlah tanggal pemberangkatan dan tujuan anda</p>
+             <br>
+             <h6><b>4. pilih kursi yang tersedia</b></h6>
+             <p>setelah anda yakin dengan kursi yang dipilih silahkan pilih lanjut untuk masuk kedalam rincian dan menu pembayaran</p>
+             <br>
+             <h6><b>5. rincian dan pembayaran</b></h6>
+             <p>setelah anda mendapatkan rincian anda bisa memastikan kembali apakah pesanan sudah sesuai jika sudah anda dapat melanjutkan ke 
+                 metode pembayaran yang bermitra dengan kami
+             </p>
+             <br>
+             <h6><b>6. voucher</b></h6>
+             <p>setelah pembayaran terkonfirmasi anda akan mendaptkan voucher secara digital melalui web javaloca.</p>
+
+           </div>
+         </div>
+       </div>
+
+
+
+
+
+
+       <div class="card">
+         <div class="card-header" id="headingTwo">
+           <h2 class="mb-0">
+             <button class="btn btn-link btn-block text-left collapsed textfaq warna" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+               bagaimana cara pesan hotel dan villa ?
+             </button>
+           </h2>
+         </div>
+         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+           <div class="card-body">
+               <h6><b>1. login</b></h6>
+               <p>Login terlebih dahulu jika sudah mempunyai akun, jika belum anda dapat membuat akun terlebih dahulu</p>
+               <br>
+               <h6><b>2. pilih menu</b></h6>
+               <p>setelah login anda dapat memilih menu Accommodations lalu pilih jenis penginapan</p>
+               <br>
+               <h6><b>3. pilih tanggal dan lokasi</b></h6>
+               <p>pilihlah tanggal checkin dan cekout serta lokasi penginapan</p>
+               <br>
+               <h6><b>4. pilih hotel yang tersedia</b></h6>
+               <p>setelah itu pilih lah hotel yang sesuai, lalu pilih lanutkan</p>
+               <br>
+               <h6><b>5. rincian dan pembayaran</b></h6>
+               <p>setelah anda mendapatkan rincian anda bisa memastikan kembali apakah pesanan sudah sesuai jika sudah anda dapat melanjutkan ke 
+                   metode pembayaran yang bermitra dengan kami
+               </p>
+               <br>
+               <h6><b>6. voucher</b></h6>
+               <p>setelah pembayaran terkonfirmasi anda akan mendaptkan voucher secara digital melalui web javaloca.</p>
+           </div>
+         </div>
+       </div>
+
+
+
+
+
+
+       <div class="card">
+         <div class="card-header" id="headingThree">
+           <h2 class="mb-0">
+             <button class="btn btn-link btn-block text-left collapsed textfaq warna" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+               Cara memesan Tiket pesawat ?
+             </button>
+           </h2>
+         </div>
+         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+           <div class="card-body">
+             <h6><b>1. Home</b></h6>
+             <p>Di halaman awal javaloca, ketuk Tiket Pesawat. Isi asal, tujuan, tanggal perjalanan, jumlah penumpang dan kelas penerbangan pada kotak pencarian, lalu ketuk Cari Tiket.</p>
+               <br>
+               <h6><b>2. pilih tiket</b></h6>
+               <p>Pilih tiket pesawat yang Anda inginkan, kemudian ketuk Lanjut ke Pemesanan</p>
+               <br>
+               <h6><b>3. Pengisian Identitas</b></h6>
+               <p> Isi Data Pemesan dan Detail Traveler. Mohon pastikan untuk mengisi nama dan data sesuai dengan kartu identitas seperti KTP atau paspor. Jika nama Anda menggunakan tanda baca, mohon isi nama Anda tanpa tanda baca tersebut. 
+
+                 Gulir ke bawah untuk membeli tambahan yang Anda perlukan, seperti bagasi tambahan, pilihan tempat duduk, makanan dan asuransi, kemudian ketuk Lanjut ke Pembayaran. Pastikan detail pesanan Anda sudah benar, lalu ketuk Ya, Lanjut ke Pembayaran.</p>
+               <br>
+               <h6><b>4. Pembayaran</b></h6>
+               <p>Pilih metode pembayaran yang Anda inginkan dan lakukan pembayaran. Mohon pastikan bahwa nominal pembayaran sudah sesuai dan lakukan pembayaran sebelum batas waktu habis. Jika tidak, Anda harus memesan ulang tiket pesawat Anda.</p>
+               <br>
+               <h6><b>5. rincian dan pembayaran</b></h6>
+               <p>Klik Lihat Progress Pembelian untuk melihat status pesanan Anda.
+
+
+                 Anda akan menerima e-tiket via email setelah pembayaran Anda berhasil dikonfirmasi.
+               </p>
+               <br>
+               <h6><b>6. voucher</b></h6>
+               <p>setelah pembayaran terkonfirmasi anda akan mendaptkan voucher secara digital melalui web javaloca.</p>
+           </div>
+         </div>
+       </div>
+          
+
+
+
+       <div class="card">
+         <div class="card-header" id="headingThree">
+           <h2 class="mb-0">
+             <button class="btn btn-link btn-block text-left collapsed textfaq warna" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+               Cara Cek-in Online?
+             </button>
+           </h2>
+         </div>
+         <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+           <div class="card-body">
+             <h6><b>1.</b></h6><p>Pergi ke Pesanan. Buka e-tiket Anda, lalu ketuk Check-in Online. Centang kotak untuk menyetujui Kebijakan Check-in Online. Ketuk Lanjutkan.</p>
+             <br>
+           
+             
+             <h6><b>2.</b></h6>
+               <p>Periksa detail Anda dan ketuk Lanjutkan. Ketuk Check-in.Jika pemilihan kursi tersedia, Anda bisa pilih kursi yang Anda inginkan, lalu ketuk Simpan. Mohon diingat bahwa Anda mungkin akan dikenakan biaya untuk pemilihan kursi. Ketuk Check-in.</p>
+               <br>
+
+
+               <h6><b>3.</b></h6>Mohon diingat bahwa beberapa maskapai mengharuskan Anda membawa boarding pass cetak ke pintu keberangkatan. Jika Anda tidak bisa mencetaknya sendiri, staf maskapai bisa mencetaknya untuk Anda di konter check-in bandara. Silakan cek kebijakan maskapai Anda di bagian Info Penting Keberangkatan pada e-tiket Anda.</p>
+               <br>
+             </div>
+           </div>
+         </div>
+
+
+
+
+               <div class="card">
+                 <div class="card-header" id="headingThree">
+                   <h2 class="mb-0">
+                     <button class="btn btn-link btn-block text-left collapsed textfaq warna" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                       Cara refund tiket?
+                     </button>
+                   </h2>
+                 </div>
+                 <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                   <div class="card-body">
+                     <h6><b>1.</b></h6>
+                     <p>Pergi ke halaman awal. Ketuk Pesanan dan pilih penerbangan yang ingin Anda ganti. Pada bagian Atur Pesanan, ketuk Reschedule. Ketuk Kebijakan untuk membaca Kebijakan Reschedule. Setelah itu, ketuk Ajukan Reschedule. Ketuk centang penerbangan dan nama penumpang, lalu ketuk Lanjutkan..</p>
+                     <br>
+                     <h6><b>2.</b></h6>
+                     <p>Baca Kebijakan Reschedule, ketuk centang pada Saya Menyetujui Kebijakan Reschedule, kemudian ketuk Lanjutkan. Penerbangan lama Anda tidak akan diganti sampai Anda melakukan pembayaran.</p>
+                     <br>
+                     <h6><b>3.</b></h6>
+                     <p>Isi asal, tujuan, tanggal perjalanan, dan kelas kursi pada kotak pencarian, kemudian ketuk Cari. Ketuk penerbangan yang Anda inginkan.</p>
+                     <br>
+                     <h6><b>4.</b></h6>
+                     <p>Cek detail penerbangan baru Anda, lalu ketuk Lanjutkan. Cek Rincian Harga pada Info Harga, kemudian ketuk Pilih. 
+
+                     Jika harga penerbangan baru Anda lebih tinggi dari penerbangan asli, Anda akan dikenakan selisih biayanya. 
+                     
+                     Jika harga penerbangan baru Anda lebih rendah dari penerbangan asli, maka surplus dana akan dikembalikan melalui metode pembayaran awal Anda. Misalnya, jika Anda bayar melalui transfer bank, surplus dana akan ditransfer kembali ke rekening bank Anda.</p>
+                     <br>
+                     <h6><b>5.</b></h6>
+                     <p>Ketuk Lanjutkan ke Pembayaran untuk menyelesaikan reschedule penerbangan Anda.</p>
+                     <br>
+                     <h6><b>6.</b></h6>
+                     <p>Temukan e-tiket baru Anda pada Pesanan dalam waktu maksimal 60 menit setelah pembayaran dikonfirmasi.
+
+
+                       Sebagai informasi, Anda juga dapat mengajukan reschedule dengan menghubungi maskapai terkait.</p>
+                      
+             
+           </div>
+         </div>
+              </div>       <br><br>
+              <%- include('../layouts/footer.ejs'); %>
+           
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+               <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>  
+                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
