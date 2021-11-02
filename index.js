@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const mongoose = require('mongoose')
 const app = express()
 
 app.use(express.static('public'));
@@ -18,14 +19,14 @@ app.use( (req, res, next) => {
     next();
 })
 
-// mongoose.connect(('mongodb+srv://kelas_A:Uaba7KLoO0BqO7xn@cluster0.imabx.mongodb.net/dazzled_a?retryWrites=true&w=majority'), (err, res) => {
-//     if (err) {
-//         console.error(err);
-//     }
-//     else {
-//         console.log('Database terhubung!')
-//     }
-// })
+mongoose.connect(('mongodb+srv://admin:12345@javaloca.wdxsx.mongodb.net/javaloca?retryWrites=true&w=majority'), (err, res) => {
+    if (err) {
+        console.error(err);
+    }
+    else {
+        console.log('Database terhubung!')
+    }
+})
 
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');

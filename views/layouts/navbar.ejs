@@ -55,14 +55,14 @@
                     </div>
                   </li>
 
-                  <li class="nav-item">
-                    <% if(locals.isLoggedIn) { %>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/logout">Log Out</a>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Account
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="/account/signin">Sign in</a>
+                          <a class="dropdown-item" href="/account/signup">Sign up</a>
                       </div>
-                      <% } else { %>
-                        <a class="nav-link" href="/account">Account</a>
-                      <% } %>
                 </li>
                 
           </div>
