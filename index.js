@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const mongoose = require('mongoose')
+
 const app = express()
 
 app.use(express.static('public'));
@@ -10,11 +11,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use(session({
-    secret: 'som3_s3cret_k3ys',
+    secret: 'som3_secre3t_keys',
     cookie: {}
 }))
 
-app.use( (req, res, next) => {
+app.use((req, res, next) => {
     res.locals.isLoggedIn = req.session.isLoggedIn;
     next();
 })

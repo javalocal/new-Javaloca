@@ -13,46 +13,66 @@ router.get('/signup', async (req, res) => {
     res.render('pages/account');
 })
 
-router.post('/', (req, res) => {
-    const email = req.body.emailsignin;
-    const password = req.body.passwordsignin;
-
-    if (email == "123@134" && password == "123") {
-        req.session.isLoggedIn = true;
-        res.redirect('/');
-    }
-    else {
-        res.redirect('/');
-    }
-    console.log(session.isLoggedIn);
+router.get('/logout', async (req, res) => {
+    req.session.isLoggedIn = false;
+    res.redirect('/');
 })
 
+router.post('/login', async (req,res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    data = await User.find();
+
+    await data.forEach((account) => {
+        if (email == account.email) {
+            if (password == account.password) {
+                req.session.isLoggedIn = true;
+                res.redirect('/');
+                
+            }
+            else {
+                res.render('pages/signin', {error: 'Wrong Password!'})
+            }
+        }
+    })
+    res.render('pages/signin', {error: 'Wrong email or password!'})
+})
+
+
 router.post('/register', async (req,res) =>{
-    const name = req.body.name_signup;
-    const address = req.body.address_signup;
-    const email =req.body.email_signup;
+    const name = req.body.name;
+    const address = req.body.address;
+    const email =req.body.email;
     
     data = await User.find();
     await data.forEach((account) => {
         if (email == account.email) {
-            res.render('pages/signup', {error: 'Email sudah terdaftar'})
+            res.render('pages/account', {error: 'Email sudah terdaftar'})
         }
     })
 
-    const password = req.body.password_signup;
-    const user = new User ({
-        name: name,
-        email: email,
-        password: password
-    });
-    await user.save((err, res) => {
-        if (err) console.error(err);
-        else {
-            console.log('Sign In berhasil!');
-        }
-    })
-    req.session.isLoggedIn = true;
-    res.redirect('/');
+    const password = req.body.password;
+    const comfirm = req.body.confirm;
+
+ if (password != comfirm) {
+        res.render('pages/account', {error: 'Password tidak sama!'})
+    }
+    else {
+        const user = new User ({
+            name: name,
+            email: email,
+            address: address,
+            password: password
+        });
+        await user.save((err, res) => {
+            if (err) console.error(err);
+            else {
+                console.log('Sign In berhasil!');
+            }
+        })
+        res.redirect('/account/signin');
+    }
 })
 
 module.exports = router;
