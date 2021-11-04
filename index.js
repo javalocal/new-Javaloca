@@ -15,10 +15,6 @@ app.use(session({
     cookie: {}
 }))
 
-app.use((req, res, next) => {
-    res.locals.isLoggedIn = req.session.isLoggedIn;
-    next();
-})
 
 mongoose.connect(('mongodb+srv://admin:12345@javaloca.wdxsx.mongodb.net/javaloca?retryWrites=true&w=majority'), (err, res) => {
     if (err) {
@@ -27,6 +23,11 @@ mongoose.connect(('mongodb+srv://admin:12345@javaloca.wdxsx.mongodb.net/javaloca
     else {
         console.log('Database terhubung!')
     }
+})
+
+app.use((req, res, next) => {
+    res.locals.isLoggedIn = req.session.isLoggedIn;
+    next();
 })
 
 const indexRouter = require('./routes/index');

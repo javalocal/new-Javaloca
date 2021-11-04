@@ -19,8 +19,8 @@ router.get('/logout', async (req, res) => {
 })
 
 router.post('/login', async (req,res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+    const email = req.body.email_signin;
+    const password = req.body.password_signin;
 
     data = await User.find();
 
@@ -29,6 +29,7 @@ router.post('/login', async (req,res) => {
             if (password == account.password) {
                 req.session.isLoggedIn = true;
                 res.redirect('/');
+                console.log('Sign In berhasil!');
                 
             }
             else {
@@ -36,7 +37,6 @@ router.post('/login', async (req,res) => {
             }
         }
     })
-    res.render('pages/signin', {error: 'Wrong email or password!'})
 })
 
 
