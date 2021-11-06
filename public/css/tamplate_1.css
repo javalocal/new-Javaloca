@@ -49,6 +49,7 @@ header .navbar-brand{
     padding: 20vmin 0;
 }
 
+
 .section-1 .row .col-md-6 .pray img{
     opacity: 0.8;
     width: 95%;
@@ -69,6 +70,7 @@ header .navbar-brand{
     font-family: poppins;
     z-index: 1;
 }
+
 
 .section-4 .container h1{
     font-size: 6vmin;
