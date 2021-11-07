@@ -48,7 +48,7 @@ router.post('/register', async (req,res) =>{
     data = await User.find();
     await data.forEach((account) => {
         if (email == account.email) {
-            res.render('pages/account', {error: 'Email sudah terdaftar'})
+            res.render('pages/account', {error: 'Password tidak sama!'})
         }
     })
 
