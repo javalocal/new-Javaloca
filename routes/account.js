@@ -1,7 +1,8 @@
+const e = require('express');
 const express = require('express');
 const User = require('../models/user')
 const router = express.Router();
-
+var  emaiL;
 
 
 
@@ -18,9 +19,18 @@ router.get('/logout', async (req, res) => {
     res.redirect('/');
 })
 
+router.get('/user', async (req, res) => {
+    search ={email:emaiL};
+    var data = await User.find(search);
+    console.log(data.name);
+    res.render('pages/user', {datauser:data});
+})
+
 router.post('/login', async (req,res) => {
     const email = req.body.email_signin;
+    emaiL = req.body.email_signin;
     const password = req.body.password_signin;
+    console.log(emaiL);
 
     data = await User.find();
 
@@ -29,7 +39,7 @@ router.post('/login', async (req,res) => {
             if (password == account.password) {
                 req.session.isLoggedIn = true;
                 res.redirect('/');
-                console.log('Sign In berhasil!');
+                
                 
             }
             else {
@@ -40,22 +50,20 @@ router.post('/login', async (req,res) => {
 })
 
 
-router.post('/register', async (req,res) =>{
+router.post('/register', async (req,res) => {
     const name = req.body.name;
     const address = req.body.address;
-    const email =req.body.email;
+    const email = req.body.email;
     
     data = await User.find();
     await data.forEach((account) => {
         if (email == account.email) {
-            res.render('pages/account', {error: 'Password tidak sama!'})
+            res.render('pages/account', {error: 'Email sudah terdaftar'})
         }
     })
-
     const password = req.body.password;
-    const comfirm = req.body.confirm;
-
- if (password != comfirm) {
+    const password_ = req.body.confirm;
+    if (password != password_) {
         res.render('pages/account', {error: 'Password tidak sama!'})
     }
     else {
@@ -71,8 +79,14 @@ router.post('/register', async (req,res) =>{
                 console.log('Sign In berhasil!');
             }
         })
-        res.redirect('/account/signin');
+        req.session.isLoggedIn = true;
+        res.redirect('/');
     }
 })
+
+router.post('/userupdate', async(req,res) => {
+    
+    })
+
 
 module.exports = router;

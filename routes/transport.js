@@ -25,19 +25,6 @@ const date =req.body.dateplane;
     var search = {to: To, from: From};
     var data = await transport.find(search);
     res.render('pages/plane_hasil', {transport: data});
-    // await data.forEach((transport) =>{
-    //     if (from == transport.from) {
-    //         if (to == transport.to) {
-    //             res.render('pages/plane_hasil', {transport: data});
-    //             if (date == transport.date){
-    //                 if (classplane== transport.classtype) {
-    //                     console.log('oke')   
-    //                 }
-    //             }
-                
-    //         }
-    //     }
-    // })
    
 }
 

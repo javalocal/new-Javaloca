@@ -50,7 +50,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/Faq">Faq</a>
                         <a class="dropdown-item" href="/promo">Promo</a>
-                      <a class="dropdown-item" href="/mybooking">My booking</a>
+                      <a class="dropdown-item" href="/mybook">My booking</a>
                       <a class="dropdown-item" href="/Thingtodo">Thing to do</a>
                     </div>
                   </li>
@@ -61,6 +61,7 @@
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                           <% if(locals.isLoggedIn) { %>
+                            <a class="dropdown-item" href='/account/user'>User</a>
                             <a class="dropdown-item" href='/account/logout'>Logout</a>
                             <% } else { %>
                           <a class="dropdown-item" href="/account/signin">Sign in</a>

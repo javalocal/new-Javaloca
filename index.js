@@ -34,12 +34,13 @@ const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
 const ThingtodoRouter = require('./routes/Thingtodo');
 const transprtRouter =require('./routes/transport');
-
+const promoRouter= require('./routes/promo');
 
 app.use('/', indexRouter);
 app.use('/account', accountRouter);
 app.use('/Thingtodo',ThingtodoRouter);
 app.use('/transport', transprtRouter);
+app.use('/promo', promoRouter);
 
 app.listen('3000', ()=> {
     console.log('Server sudah berjalan di port 3000')
