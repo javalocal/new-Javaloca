@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const transport = require('../models/transport')
 
-router.get('/airplane', (req, res) => {
+router.get('/plane', (req, res) => {
     res.render('pages/plane')
 })
 

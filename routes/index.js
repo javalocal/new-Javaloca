@@ -14,4 +14,24 @@ router.get('/mybook', (req, res) => {
     res.render('pages/mybooking')
 })
 
+router.get('/Howtobook', (req, res) => {
+    res.render('pages/Howtobook')
+})
+
+router.get('/Aboutus', (req, res) => {
+    res.render('pages/Aboutus')
+})
+
+router.get('/Contacus', (req, res) => {
+    res.render('pages/Contacus')
+})
+
+router.get('/Terms', (req, res) => {
+    res.render('pages/Terms')
+})
+
+router.get('/partner', (req, res) => {
+    res.render('pages/partner')
+})
+
 module.exports = router;
