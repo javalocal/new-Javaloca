@@ -30,4 +30,8 @@ router.get('/Terms', (req, res) => {
     res.render('pages/Terms')
 })
 
+router.get('/partner', (req, res) => {
+    res.render('pages/partner')
+})
+
 module.exports = router;
