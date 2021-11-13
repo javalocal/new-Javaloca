@@ -21,4 +21,9 @@ router.get('/Howtobook', (req, res) => {
 router.get('/Aboutus', (req, res) => {
     res.render('pages/Aboutus')
 })
+
+router.get('/Contacus', (req, res) => {
+    res.render('pages/Contacus')
+})
+
 module.exports = router;
