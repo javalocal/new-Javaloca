@@ -26,4 +26,8 @@ router.get('/Contacus', (req, res) => {
     res.render('pages/Contacus')
 })
 
+router.get('/Terms', (req, res) => {
+    res.render('pages/Terms')
+})
+
 module.exports = router;
