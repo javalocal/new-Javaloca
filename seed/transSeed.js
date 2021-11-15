@@ -36,7 +36,7 @@ var done = 0;
 for (var i = 0; i < products.length; i++) {
     products[i].save((err, res) => {
         done++;
-        if(done == transport.length) {
+        if(done == Transport.length) {
             console.log('Berhasil tersimpan!');
             exit();
         }

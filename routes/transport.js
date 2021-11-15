@@ -45,7 +45,7 @@ router.post('/train-results', async(req,res) => {
             res.render('pages/train', {error: 'Tanggal tidak valid'})
         }
         const classplane=req.body.classtrain;
-        var search = {to: To, from: From};
+        var search = {to: To, from: From, traincode: "ka"};
         var data = await transport.find(search);
         res.render('pages/train_hasil', {transport: data});
        
