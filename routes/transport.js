@@ -33,4 +33,23 @@ const date =req.body.dateplane;
 }
 
 })
+
+router.post('/train-results', async(req,res) => {
+    const From =req.body.fromtrain;
+    const To =req.body.totrain;
+    if(From == To){
+        res.render('pages/train', {error: 'Tujuan tidak valid'})
+    }else{
+    const date =req.body.datetrain;
+        if (date == null || date=='') {
+            res.render('pages/train', {error: 'Tanggal tidak valid'})
+        }
+        const classplane=req.body.classtrain;
+        var search = {to: To, from: From};
+        var data = await transport.find(search);
+        res.render('pages/train_hasil', {transport: data});
+       
+    }
+    
+    })
 module.exports = router;
