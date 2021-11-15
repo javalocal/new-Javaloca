@@ -26,36 +26,6 @@
     <br>
 
     <% transport.forEach((transport) => { %>
-<a href="Plane-resoult1.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://3.bp.blogspot.com/-UwBVwntt6zI/W_9IkOaBUxI/AAAAAAAAGTQ/GTGtJVJA_qcsE69-hs3SPhhcxM3ogP60wCK4BGAYYCw/s1600/InShot_20181129_085543237-min.jpg" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title"><%= transport.name %></h3></div>
-                            <div class="p-2 bd-highlight colorpram"><%= transport.waktu %></div>
-                            <div class="p-2 bd-highlight colorpram"><%= transport.from %></div>
-                            <div class="p-2 bd-highlight colorpram"><%= transport.to %></div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Flight details</small></p></div>
-                          </div> 
-                    </div>
-
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong><div class="p-2 bd-highlight colorpram"><%= transport.harga %></div></strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <br>
-        <% }) %>
-
         <div class="container mt-7 mb-5">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-12">
@@ -63,9 +33,9 @@
                         <div class="col-md-3 mt-1">
                             <div class="d-flex align-items-center">
                                 <div class="p-2 bd-highlight">
-                                    <img style="height: 50px; width: 70px;" src="/img/citilink.png">
+                                    <img style="height: 50px; width: 70px;" src="<%= transport.gambar %>">
                                 </div>
-                                <div class="p-2 bd-highlight"><h4>Lion</h4></div>
+                                <div class="p-2 bd-highlight"><h4><%= transport.name %></h4></div>
                             </div>
 
                             
@@ -73,52 +43,83 @@
                     
                             <div class="col">
                                 <div class="d-flex flex-column bd-highlight mb-3" style="text-align: center;">
-                                    <div class="p-2 bd-highlight"><h4>13:00</h4></div>
-                                    <div class="p-2 bd-highlight">Jakarta
-                                        <div style="text-align: center;">(CGK)</div>
-                                    </div>
+                                    <div class="p-2 bd-highlight"><h4><%= transport.waktu_from %></h4></div>
+                                    <div class="p-2 bd-highlight"><%= transport.from %></div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="d-flex flex-column bd-highlight mb-3" style="text-align: center;"> 
-                                <div class="p-2 bd-highlight"><h4>14:30</h4></div>
-                                <div class="p-2 bd-highlight">Surabaya
-                                    <div style="text-align: center;">(SUB)</div>
-                                </div>
+                                <div class="p-2 bd-highlight"><h4><%= transport.waktu_to %></h4></div>
+                                <div class="p-2 bd-highlight"><%= transport.to %></div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="d-flex flex-column bd-highlight mb-3" style="text-align: center;"> 
-                                    <div class="p-2 bd-highlight"><h4>1H 30M</h4></div>
+                                    <div class="p-2 bd-highlight"><h4><%= transport.waktu %></h4></div>
                                     <div class="p-2 bd-highlight">Direct</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="d-flex flex-column bd-highlight mb-3"style="text-align: center;"> 
                                     <div class="p-2 bd-highlight"><span class="material-icons">work_outline</span></div>
-                                    <div class="p-2 bd-highlight">20kg</div>
+                                    <div class="p-2 bd-highlight"><%= transport.bagasi %></div>
                                 </div>
                             </div>
-                        <div class="align-items-center align-content-center col-md-2 border-left mt-1">
-                            <div class="d-flex flex-row align-items-center">
-                                <h4 class="mr-1">IDR 500.000</h4>
-                            </div>
-                            <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Choose</button>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="col">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Flight Details
-                              </button>
-                              <div class="collapse" id="collapseExample">
-                                <div class="card card-body">
-                                  
+                        <div class="align-items-center align-content-center col-md-3 border-left">
+                                <h4 class="mr-1">IDR <%= transport.price %></h4>
+                            <div class="d-flex flex-row mt-4">
+                                <div class="p-1 bd-highlight">
+                                    <button class="btn btn-primary btn-md" type="button" data-toggle="collapse" data-target="#<%= transport.kode %>" aria-expanded="false" aria-controls="collapseExample">More</button>
                                 </div>
-                        </div>
-                    </div>
+                                <div class="p-1 bd-highlight">
+                                    <button class="btn btn-primary btn-md"  ><a href="/transport/seat" style="color: aliceblue;"> Choose </a></button>
+                                </div>
+                            </div>
                     </div>
                 </div>
+                <div class="collapse" id="<%= transport.kode %>"> 
+                    <div class="row p-2 bg-white border rounded">
+                         
+                            <div class="col-md-3">
+                                        <h5><%= transport.from %></h5>
+                                        <p><%= transport.ter_from %></p>
+                                        <p class="text-muted"><%= transport.waktu_from %></p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5><%= transport.to %></h5>
+                                <p><%= transport.ter_to %></p>
+                                <p class="text-muted"><%= transport.waktu_to %></p>
+                            </div>
+                           
+                            <div class="col">
+                                <div class="d-flex flex-row bd-highlight justify-content-around">
+                                    <div class="p-3 bd-highlight">
+                                            <h5 class="p-2 bd-highlight"><%= transport.kode %></h5>
+                                            <div class="p-2 bd-highlight"><%= transport.class %></div>
+                                        </div> 
+                    
+                                    <div class="p-3 bd-highlight">
+                                       
+                                            <h5 class="p-2 bd-highlight">Baggage</h5>
+                                            <div class="p-2 bd-highlight"><%= transport.bagasi %></div>
+                                        </div> 
+                                   
+                                    <div class="p-3 bd-highlight">
+                                       
+                                            <h5 class="p-2 bd-highlight">Aircraft <%= transport.pesawat %></h5>
+                                            <div class="p-2 bd-highlight">Seat layout 3-3</div>
+                                        </div> 
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+
+        <% }) %>
+
             </div>
         </div>
     </div>

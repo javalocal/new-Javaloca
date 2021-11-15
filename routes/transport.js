@@ -11,6 +11,10 @@ router.get('/train', (req, res) => {
     res.render('pages/train')
 })
 
+router.get('/seat', (req, res) => {
+    res.render('pages/bangku_p')
+})
+
 router.post('/plane-results', async(req,res) => {
 const From =req.body.fromplane;
 const To =req.body.toplane;
