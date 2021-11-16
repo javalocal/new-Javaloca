@@ -26,7 +26,7 @@ const date =req.body.dateplane;
         res.render('pages/plane', {error: 'Tanggal tidak valid'})
     }
     const classplane=req.body.classplane;
-    var search = {to: To, from: From};
+    var search = {to: To, from: From, bagasi: "20KG"};
     var data = await transport.find(search);
     res.render('pages/plane_hasil', {transport: data});
    
@@ -45,7 +45,12 @@ router.post('/train-results', async(req,res) => {
             res.render('pages/train', {error: 'Tanggal tidak valid'})
         }
         const classplane=req.body.classtrain;
-        var search = {to: To, from: From, traincode: "ka"};
+        if (classplane == "Any" ){
+            var search = {to: To, from: From, traincode: "ka"};
+        }else{
+            var search = {to: To, from: From, clas: classplane , traincode: "ka"};
+        }
+        
         var data = await transport.find(search);
         res.render('pages/train_hasil', {transport: data});
        

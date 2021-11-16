@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const productSchema = mongoose.Schema({
+    jenis: {
+        type: String,
+        required: true
+    },
     gambar: {
         type: String,
         required: true
@@ -9,62 +13,48 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    from: {
+    lok: {
         type: String,
         required: true
     },
-    to: {
+    lokasi: {
         type: String,
         required: true
     },
-    clas: {
+    kamar1: {
         type: String,
         required: true
     },
-    waktu_from: {
+    kamar2: {
         type: String,
         required: true
     },
-    waktu_to: {
+    gambar1: {
         type: String,
         required: true
     },
-    waktu: {
+    gambar2: {
         type: String,
         required: true
     },
-    date: {
-        type: Date,
+    harga1: {
+        type: Number,
         required: true
     },
-    bagasi: {
+    harga2: {
+        type: Number,
+        required: true
+    }, 
+    bintang: {
         type: String,
         required: true
     },
     kode: {
-        type: String,
-        required: true
+        type:String,
+        require:true
     },
-    ter_from: {
-        type: String,
-        required: true
-    },
-    ter_to: {
-        type: String,
-        required: true
-    },
-    pesawat: {
-        type: String,
-        required: true
-    },
-    traincode: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number,
-        required:true
-    }
+
+
 });
 
-module.exports = mongoose.model('transport', productSchema, 'Transport')
+module.exports = mongoose.model('Akomodasi', productSchema, 'Akomodasi')

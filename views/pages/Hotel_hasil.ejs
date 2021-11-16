@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Hotel-Javaloca</title>
+    <title>Resoult-Javaloca</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-          <link rel="stylesheet" href="tamplate_1.css">
+          <link rel="stylesheet" href="/css/tamplate_1.css">
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 </head>
@@ -17,7 +17,6 @@
        <div class="container-fluid p-0">
         <%- include('../layouts/navbar.ejs'); %>
        </div>
-       
     </header>
 
   <br>
@@ -26,292 +25,160 @@
     <br>
     <br>
 
-    <div class="container-md p-6">
-          <a href="Hotel-resoult1.html" >
-              <div class="card rounded" style="margin: 6px ;">
-                  <div class="row">
-                      <div class="col">
-                              <img src="https://cdn.galaxy.tf/thumb/sizeW1920/uploads/2s/cms_image/001/569/997/1569997982_5d94449e257c0-thumb.jpg" alt="" height="150px" width="200px" class="d-flex">
-                      </div>
-                      <div class="col-md-6 ">
-          
-                          <div class="d-flex flex-column bd-highlight">
-                              <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Hotel Gran Mahakam</h3></div>
-                              <div class="p-2 bd-highlight colorpram">(021) 7209966</div>
-                              <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Jl. Mahakam No.8, RT.1/RW.7, Kramat Pela, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12130</small></p></div>
-                            </div> 
-                      </div>
-          
-                      <div class="col-md-2 align-self-center colorpram">
-                          <p class="mb-0">
-                              <h4><strong>Rp 700.000</strong></h4>
-                            </p>
-                      </div>
-                  </div>
-              </div>
-          </a>
-</div>
+    <% akomodasi.forEach((akomodasi) => { %>                        
+                        <div class="container mt-7 mb-5">
+                            <div class="d-flex justify-content-center row">
+                                <div class="col-md-12  bg-white border rounded">
+                                    <div class="row p-2">
+                                        <div class="col-md-3 p-2">
+                                            <div class="d-flex align-items-center">
+                                                <img style="height: 140px; width: 190px; justify-content: center;" src="<%= akomodasi.gambar %>">
+                                            </div> 
+                                        </div>
+                                    
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="d-flex flex-column bd-highlight mb-3">
+                                                        <div class="p-2 bd-highlight"><h4><%=akomodasi.name%></h4></div>
+                                                        <div class="p-2 bd-highlight"><%= akomodasi.lokasi %></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="text-align: center;">
+                                                    <div class="col">
+                                                        <div class="d-flex flex-column bd-highlight mb-3">
+                                                            <div class="p-2 bd-highlight"><span class="material-icons">air</span></div>
+                                                            <div class="p-2 bd-highlight">AC</div>
+                                                          </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="d-flex flex-column bd-highlight mb-3">
+                                                            <div class="p-2 bd-highlight"><span class="material-icons">restaurant</span></div>
+                                                            <div class="p-2 bd-highlight">Restaurant</div>
+                                                          </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="d-flex flex-column bd-highlight mb-3">
+                                                            <div class="p-2 bd-highlight"><span class="material-icons">local_parking</span></div>
+                                                            <div class="p-2 bd-highlight">Parking</div>
+                                                          </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="d-flex flex-column bd-highlight mb-3">
+                                                            <div class="p-2 bd-highlight"><span class="material-icons">waves</span></div>
+                                                            <div class="p-2 bd-highlight">Swimming Pool</div>
+                                                          </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="d-flex flex-column bd-highlight mb-3">
+                                                            <div class="p-2 bd-highlight"><span class="material-icons">wifi</span></div>
+                                                            <div class="p-2 bd-highlight">WIFI</div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        
+                                        <div class="align-items-center align-content-center col-md-2 border-left">
+                                                <h4 class="mr-1" style="text-align: right;"><%= akomodasi.bintang %> <span class="material-icons" style="color:rgb(255, 196, 0); font-size: 12pt;">star</span></h4>
+                                            <div class="d-flex flex-column mt-4" style="text-align: center;">
+                                                <div class="p-1 bd-highlight">
+                                                    <h4>IDR <%= akomodasi.harga1 %> </h4>
+                                                </div>
+                                                <div class="p-1 bd-highlight">
+                                                    <button class="btn btn-primary btn-xl" type="button" data-toggle="collapse" data-target="#<%= akomodasi.kode %>" aria-expanded="false" aria-controls="collapseExample">More</button>
+                                                </div>
+                                               
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="<%= akomodasi.kode %>"> 
+                                    <% kamar.forEach((kamar) => { %> 
+                                        <% if(kamar.kode==akomodasi.kode){ %>
+                                            <div class="row p-2 ">
+                                                <div class="col-md-3 p-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <img style="height: 140px; width: 190px; justify-content: center;" src="<%= kamar.gambar %>">
+                                                    </div> 
+                                                </div>
+                                            
+                                                    <div class="col">
+                                                        <div class="row">
+                                                                <div class="p-2 bd-highlight"><h4><%= kamar.kamar %></h4></div>
+                                                        </div>
+                                                        <div class="row" style="text-align: center;">
+                                                            <div class="col">
+                                                                <div class="d-flex flex-column bd-highlight mb-3">
+                                                                    <div class="p-2 bd-highlight"><span class="material-icons">restaurant</span></div>
+                                                                    <div class="p-2 bd-highlight">Breakfast</div>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex flex-column bd-highlight mb-3">
+                                                                    <div class="p-2 bd-highlight"><span class="material-icons">shower</span></div>
+                                                                    <div class="p-2 bd-highlight">toiletries</div>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex flex-column bd-highlight mb-3">
+                                                                    <div class="p-2 bd-highlight"><span class="material-icons">smart_display</span></div>
+                                                                    <div class="p-2 bd-highlight">Television</div>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex flex-column bd-highlight mb-3">
+                                                                    <div class="p-2 bd-highlight"><span class="material-icons">wifi</span></div>
+                                                                    <div class="p-2 bd-highlight">Free WIFI</div>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex flex-column bd-highlight mb-3">
+                                                                    <div class="p-2 bd-highlight"><span class="material-icons">bed</span></div>
+                                                                    <div class="p-2 bd-highlight">King Bed</div>
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                
+                                                <div class="align-items-center align-content-center col-md-2 border-left">
+                                                    <div class="d-flex flex-column mt-4" style="text-align: center;">
+                                                        <div class="p-1 bd-highlight">
+                                                            <h4>IDR <%= kamar.harga %></h4>
+                                                        </div>
+                                                        <div class="p-1 bd-highlight">
+                                                            <button class="btn btn-primary btn-md"  ><a href="/accommodation/confirmation" style="color: aliceblue;"> Choose </a></button>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                     </div>
+                                                    </div>
+                                            <%}%>
 
-        
-
-        <div class="container-md p-6">
-          <a href="Hotel-resoult2.html">
-              <div class="card mb-3 rounded" style="margin: 6px ;">
-                  <div class="row">
-                      <div class="col justify-content-center colorpram">
-                          <div class=" bd-highlight">
-                              <img src="https://lh5.googleusercontent.com/p/AF1QipOaUBiw8-RdC9LvLdAoF3kYyubyQteS_LvpZZQs=w325-h226-k-no" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                          </div>
-                      </div>
-                      <div class="col-md-6 ">
-          
-                          <div class="d-flex flex-column bd-highlight">
-                              <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Hilton Bandung</h3></div>
-                              <div class="p-2 bd-highlight colorpram">(022) 86066888</div>
-                              <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Jl. HOS Tjokroaminoto No.41-43, Arjuna, Kec. Cicendo, Kota Bandung, Jawa Barat 40172</small></p></div>
-                            </div> 
-                      </div>
-          
-                      <div class="col-md-2 align-self-center colorpram">
-                          <p class="mb-0">
-                              <h4><strong>Rp 990.000</strong></h4>
-                            </p>
-                      </div>
-                  </div>
-              </div>
-          </a>
-</div>
-
-<div class="container-md p-6">
-        <a href="Hotel-resoult3.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://lh3.googleusercontent.com/proxy/Ndr0ZhcrMSvf1M_WK7sIfFOcvDLJ0xt9vhpO_-LoNExTZ54Z4TGy9p7Da1rj1A6zAoj_DgBbahKcIafcp_D85aGL2AAcxQrEAjwlUFZluqedzbmwJNv1XLJeh-1B5rDJnOl9VAh0SYdyFfib6wZWjquOGuLLPAE=w296-h202-n-k-rw-no-v1" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Ijen Suites Resort & Convention Malang</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(0341) 3301000</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Jl. Ijen Nirwana Raya, Blk. A No.16, Bareng, Kec. Klojen, Kota Malang, Jawa Timur 65116</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 400.000</strong></h4>
-                          </p>
-                    </div>
+                                        <% }) %>  
+                                    
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                        
+                        
                 </div>
-            </div>
-        </a>
-      </div>
-
-      <div class="container-md p-6">
-        <a href="Hotel-resoult4.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://pix10.agoda.net/hotelImages/4872662/0/cbb687bf441f61eab5badbc41e1df0c7.jpg?ca=20&ce=0&s=1024x768" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
+                
                     </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Pullman Hotel Jakarta Central Park</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(021) 29200088</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Podomoro City, Letjen S. Parman St No.Kav 28, RT.12/RW.6, South Tanjung Duren, Grogol petamburan, Jakarta, 11470</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 1.100.000</strong></h4>
-                          </p>
-                    </div>
+                    
                 </div>
-            </div>
-        </a>
-      </div>
+                </div>
+
+        <% }) %>
+
+  
+        
+        <%- include('../layouts/footer.ejs'); %>
       
-       <div class="container-md p-6">
-        <a href="Hotel-resoult5.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://bersamawisata.com/wp-content/uploads/2021/07/Hotel-Tentrem-Swimming-Pool.jpg" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Hotel Tentrem Semarang</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(024) 86005555</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Jl. Gajahmada No.123, Pekunden, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 1.500.000</strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <div class="container-md p-6">
-        <a href="Hotel-resoult6.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://pix10.agoda.net/hotelImages/497/4972158/4972158_18051811040065523818.jpg?s=1024x768" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">PO Hotel Semarang</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(024) 86579111</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted">Jl. Pemuda No.118, Sekayu, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50132</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 938.000</strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-      </div>
-
-       <div class="container-md p-6">
-        <a href="Hotel-resoult7.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://media.iceportal.com/87010/photos/61055088_L.jpg" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Golden Tulip Holland Resort Batu</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(0341) 3302000</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted"> Komplek, Jl. Bukit Panderman Hill Jl. Cherry No.10, Temas, Kec. Batu, Kota Batu, Jawa Timur 65314</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 938.000</strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <div class="container-md p-6">
-        <a href="Hotel-resoult8.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://pix10.agoda.net/hotelImages/338/338673/338673_15082811500035259271.jpg?s=1024x768" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">The Singhasari Resort Batu</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(0341) 513333</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted"> Jl. Ir Sukarno No.120, Beji, Kec. Batu, Kota Batu, Jawa Timur 65236</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 825.000</strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <div class="container-md p-6">
-        <a href="Hotel-resoult9.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://cdn.timesmedia.co.id/images/2021/03/17/Swiss-Belresort-Dago-Heritage.jpg" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Swiss-Belresort Dago Heritage</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(022) 20459999</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted"> Jl. Lapangan Golf Dago Atas No.78, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 784.000</strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <div class="container-md p-6">
-        <a href="Hotel-resoult10.html">
-            <div class="card mb-3 rounded" style="margin: 6px ;">
-                <div class="row">
-                    <div class="col justify-content-center colorpram">
-                        <div class=" bd-highlight">
-                            <img src="https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/itemimages/10/41/104133_v3.jpeg" alt="" style="justify-content: center;" height="150px" width="200px" class="d-flex">
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-        
-                        <div class="d-flex flex-column bd-highlight">
-                            <div class="p-2 bd-highlight colorpram"><h3 class="card-title">Sheraton Bandung Hotel & Towers</h3></div>
-                            <div class="p-2 bd-highlight colorpram">(022) 2500303</div>
-                            <div class="p-2 bd-highlight"><p class="card-text"><small class="text-muted"> Jl. Ir. H. Juanda No.390, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135</small></p></div>
-                          </div> 
-                    </div>
-        
-                    <div class="col-md-2 align-self-center colorpram">
-                        <p class="mb-0">
-                            <h4><strong>Rp 1.080.000</strong></h4>
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <%- include('../layouts/footer.ejs'); %>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>  
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-          
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
