@@ -28,11 +28,12 @@ router.post(('/villa-results'), async(req,res) => {
     const location =req.body.location;
     const checkin = req.body.checkin;
     const malam = req.body.malam;
-    var data = await akomodasi.find({lok:location});
-    var kmr = await kamar.find()
-    console.log(kmr);
+    const search = {lok:location,jenis:"villa"}
+    var data = await akomodasi.find(search);
+    
+    
     console.log(data)
-        res.render('pages/Hotel_hasil', {akomodasi: data, kamar:kmr});
+        res.render('pages/Villa_hasil', {akomodasi: data});
     
     })
 
