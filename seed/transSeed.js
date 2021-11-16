@@ -15,18 +15,13 @@ mongoose.connect(('mongodb+srv://admin:12345@javaloca.wdxsx.mongodb.net/javaloca
 const products = [
     new Akomodasi({
         jenis: 'hotel',
-        gambar: '/img/hotel_1.jpeg',
-        name: 'Four Points by Sheraton Surabaya Pakuwon Indah',
+        gambar: '/img/villa_1.jpeg',
+        name: 'Comfy House near Airport',
         lok: 'surabaya',
-        lokasi: ' Pakuwon Mall, Jalan Puncak Indah Lontar No. 2, Wiyung, Surabaya, Jawa Timur',
-        kamar1: 'Deluxe',
-        kamar2: 'Junior Suite',
-        gambar1: '/img/kamar_1.jpeg',
-        gambar2: '/img/kamar_2.jpeg',
-        harga1: 900000,
-        harga2: 1100000,
+        lokasi: ' Jalan Haji Syukur VII, Perumahan Airport Village No.A10, Sedati , Sedati, Surabaya, Jawa Timur',
+        harga: 950000,
         bintang: "4",
-        kode: "sby1",
+        kode: "sby2",
     }),
   
     
