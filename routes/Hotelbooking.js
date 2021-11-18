@@ -77,6 +77,20 @@ res.render('pages/Hotel_resoult1',{data:book.createArray(), jum:jumlah});
 
 
 
+router.get(('/confirmation/:id'), async(req,res) =>{
+    const akomodasiid= req.params.id;
+    var kode;
+    const hotel =await akomodasi.find({_id:akomodasiid});
+    await hotel.forEach((akomodasi)=>{
+       book.villa(akomodasi.name,akomodasi.lokasi,akomodasi.jenis,akomodasi.harga);
+    })
+    var jumlah = (parseInt(book.lama)*parseInt(book.harga));
+    var data_book = book.createArray();
+    console.log(jumlah);
+    res.render('pages/Hotel_resoult1',{data:book.createArray(), jum:jumlah});
+    })
+
+
 router.get(('/payment/:jenis'), async(req,res) =>{
     const jenis = req.params.jenis;
     if(req.session.isLoggedIn){
