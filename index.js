@@ -25,10 +25,13 @@ mongoose.connect(('mongodb+srv://admin:12345@javaloca.wdxsx.mongodb.net/javaloca
     }
 })
 
-app.use((req, res, next) => {
+
+app.use(function(req, res, next) {
+    res.locals.session = req.session;
     res.locals.isLoggedIn = req.session.isLoggedIn;
+    
     next();
-})
+});
 
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');

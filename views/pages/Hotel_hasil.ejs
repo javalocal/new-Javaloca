@@ -83,7 +83,7 @@
                                                 <h4 class="mr-1" style="text-align: right;"><%= akomodasi.bintang %> <span class="material-icons" style="color:rgb(255, 196, 0); font-size: 12pt;">star</span></h4>
                                             <div class="d-flex flex-column mt-4" style="text-align: center;">
                                                 <div class="p-1 bd-highlight">
-                                                    <h4>IDR <%= akomodasi.harga1 %> </h4>
+                                                    <h4>IDR <%= akomodasi.harga %> </h4>
                                                 </div>
                                                 <div class="p-1 bd-highlight">
                                                     <button class="btn btn-primary btn-xl" type="button" data-toggle="collapse" data-target="#<%= akomodasi.kode %>" aria-expanded="false" aria-controls="collapseExample">More</button>
@@ -148,7 +148,8 @@
                                                             <h4>IDR <%= kamar.harga %></h4>
                                                         </div>
                                                         <div class="p-1 bd-highlight">
-                                                            <button class="btn btn-primary btn-md"  ><a href="/accommodation/confirmation" style="color: aliceblue;"> Choose </a></button>
+                                                            <a href="/accommodation/confirmation/<%= kamar._id %>" class="btn btn-primary btn-md" type="button" data-toggle="tooltip">Book</a>
+                                                            
                                                         </div>
                                                        
                                                     </div>

@@ -2,7 +2,7 @@ const e = require('express');
 const express = require('express');
 const User = require('../models/user')
 const router = express.Router();
-var  emaiL;
+
 
 
 
@@ -27,26 +27,26 @@ router.get('/user', async (req, res) => {
 })
 
 router.post('/login', async (req,res) => {
-    const email = req.body.email_signin;
-    emaiL = req.body.email_signin;
-    const password = req.body.password_signin;
-    console.log(emaiL);
+    const email_ = req.body.email;
+    const password_ = req.body.password;
+    var emailok;
+    var passwordok;
 
-    data = await User.find();
-
-    await data.forEach((account) => {
-        if (email == account.email) {
-            if (password == account.password) {
-                req.session.isLoggedIn = true;
-                res.redirect('/');
-                
-                
-            }
-            else {
-                res.render('pages/signin', {error: 'Wrong Password!'})
-            }
+    data = await User.find({email:email_});
+    await data.forEach((account)=>{
+        emailok=account.email;
+        passwordok=account.password;
+    });
+    if(email_==emailok){
+        if(password_==passwordok){
+            req.session.isLoggedIn = true;
+            res.redirect('/');  
+        }else{
+            res.render('pages/signin', {error: 'Wrong Password'});
         }
-    })
+    }else{
+        res.render('pages/signin', {error: 'Wrong Password or Email'});
+    }
 })
 
 
@@ -54,34 +54,39 @@ router.post('/register', async (req,res) => {
     const name = req.body.name;
     const address = req.body.address;
     const email = req.body.email;
-    
-    data = await User.find();
-    await data.forEach((account) => {
-        if (email == account.email) {
-            res.render('pages/account', {error: 'Email sudah terdaftar'})
-        }
-    })
+    var email_;
     const password = req.body.password;
     const password_ = req.body.confirm;
-    if (password != password_) {
-        res.render('pages/account', {error: 'Password tidak sama!'})
+    
+    data = await User.find({email:email});
+    await data.forEach((account) => {
+        email_=account.email;
+    })
+    if(email==email_){
+        res.render('pages/account', {error: 'Email sudah terdaftar'});
+    }else{
+        if (password != password_) {
+            res.render('pages/account', {error: 'Password tidak sama!'})
+        }
+        else {
+            const user = new User ({
+                name: name,
+                email: email,
+                address: address,
+                password: password
+            });
+            await user.save((err, res) => {
+                if (err) console.error(err);
+                else {
+                    console.log('Sign In berhasil!');
+                    req.session.login = user.id;
+                }
+            })
+            req.session.isLoggedIn = true;
+            res.redirect('/');
+        }
     }
-    else {
-        const user = new User ({
-            name: name,
-            email: email,
-            address: address,
-            password: password
-        });
-        await user.save((err, res) => {
-            if (err) console.error(err);
-            else {
-                console.log('Sign In berhasil!');
-            }
-        })
-        req.session.isLoggedIn = true;
-        res.redirect('/');
-    }
+    
 })
 
 router.post('/userupdate', async(req,res) => {
