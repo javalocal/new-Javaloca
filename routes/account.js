@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/signin', async (req, res) => {
-    res.render('pages/signin');
+    res.render('pages/signin',{jenis:"login"});
 })
 
 router.get('/signup', async (req, res) => {
@@ -19,19 +19,12 @@ router.get('/logout', async (req, res) => {
     res.redirect('/');
 })
 
-router.get('/user', async (req, res) => {
-    search ={email:emaiL};
-    var data = await User.find(search);
-    console.log(data.name);
-    res.render('pages/user', {datauser:data});
-})
-
 router.post('/login', async (req,res) => {
+    const jenis = req.params.jenis;
     const email_ = req.body.email;
     const password_ = req.body.password;
     var emailok;
     var passwordok;
-
     data = await User.find({email:email_});
     await data.forEach((account)=>{
         emailok=account.email;
@@ -42,10 +35,10 @@ router.post('/login', async (req,res) => {
             req.session.isLoggedIn = true;
             res.redirect('/');  
         }else{
-            res.render('pages/signin', {error: 'Wrong Password'});
+            res.render('pages/signin', {jenis:"login",error: 'Wrong Password'});
         }
     }else{
-        res.render('pages/signin', {error: 'Wrong Password or Email'});
+        res.render('pages/signin', {jenis:"login",error: 'Wrong Password or Email'});
     }
 })
 

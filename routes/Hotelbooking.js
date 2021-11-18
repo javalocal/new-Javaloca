@@ -3,6 +3,7 @@ const router = express.Router()
 const akomodasi = require('../models/akomodasi')
 const kamar = require('../models/kamar');
 const conf = require('../models/conhotel');
+const booking = require('../models/voucher-acomo');
 const book = new conf();
 
 Date.prototype.addDays = function(days) {
@@ -73,6 +74,20 @@ var data_book = book.createArray();
 console.log(jumlah);
 res.render('pages/Hotel_resoult1',{data:book.createArray(), jum:jumlah});
 })
+
+
+
+router.get(('/payment/:jenis'), async(req,res) =>{
+    const jenis = req.params.jenis;
+    if(req.session.isLoggedIn){
+        console.log(book.createArray());
+        res.render('pages/payment',{jenis:jenis}); 
+    }else{
+        res.render('pages/signin',{jenis:jenis});
+    }
+       
+})
+
 
 
 module.exports = router;
