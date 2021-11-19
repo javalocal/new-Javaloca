@@ -78,7 +78,7 @@ router.post('/train-results', async(req,res) => {
     
     })
 
-    router.get('/confirmation/:id', (req, res) => {
+    router.get('/confirmation/:id',async (req, res) => {
         const id = req.params.id;
         const data = await transport.find({_id:id});
         await data.forEach((transport)=>{
