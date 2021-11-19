@@ -15,6 +15,17 @@ router.get('/seat', (req, res) => {
     res.render('pages/bangku_p')
 })
 
+function datestring(today){
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    return today = dd + '-' + mm + '-' + yyyy;
+}
+
+
+
+
 router.post('/plane-results', async(req,res) => {
 const From =req.body.fromplane;
 const To =req.body.toplane;
@@ -22,6 +33,8 @@ if(From == To){
     res.render('pages/plane', {error: 'Tujuan tidak valid'})
 }else{
 const date =req.body.dateplane;
+
+const date_=datestring(date);
     if (date == null || date=='') {
         res.render('pages/plane', {error: 'Tanggal tidak valid'})
     }
@@ -31,6 +44,9 @@ const date =req.body.dateplane;
     res.render('pages/plane_hasil', {transport: data});
    
 }
+
+
+
 
 })
 
@@ -57,4 +73,13 @@ router.post('/train-results', async(req,res) => {
     }
     
     })
+
+    router.get('/confirmatio/:id', (req, res) => {
+        const id = req.params.id;
+        const data = await transport.find({_id:id});
+        await data.forEach((transport)=>{
+            
+        })
+    })
+
 module.exports = router;
