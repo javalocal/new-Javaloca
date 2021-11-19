@@ -10,10 +10,6 @@ router.get('/FAQ', (req, res) => {
     res.render('pages/Faq')
 })
 
-router.get('/mybook', (req, res) => {
-    res.render('pages/mybooking')
-})
-
 router.get('/Howtobook', (req, res) => {
     res.render('pages/Howtobook')
 })

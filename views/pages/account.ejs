@@ -31,7 +31,12 @@
                 <div class="col-md-6">
                     <div class="panel text-left">
                         <h1>Register</h1>
-                        <form method="post" action="/account/register">
+                        <% if(jenis=="Hotel"){ %>
+                          <form method="post" action='/accommodation/register/<%=jenis%>'>
+                          <%}else{ %>
+                            <form method="post" action="/account/register">
+                            <%}%>
+                       
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="inputName">Full Name</label>
@@ -61,7 +66,11 @@
                             <% if(locals.error) { %>
                               <span class="text-danger pl-2" style="font-size: 2.2vh"><%= error %></span>
                               <% } %>
-                            <a class="signup__link" href="/account/signin">I am already a member</a>
+                              <% if(jenis=="register"){ %>
+                                <a class="signup__link" href="/account/signin">I am already a member</a>
+                                <%}else{ %>
+                                  <a class="signup__link" href="/account/signin/<%=jenis%>">I am already a member</a>
+                                  <%}%>
                           </form>
                     </div>
                 </div>

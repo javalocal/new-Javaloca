@@ -9,6 +9,10 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -34,6 +38,10 @@ const productSchema = mongoose.Schema({
         required: true
     },
     tanggal: {
+        type: String,
+        required: true
+    },
+    kamar: {
         type: String,
         required: true
     },

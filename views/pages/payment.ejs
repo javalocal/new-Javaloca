@@ -8,7 +8,7 @@
                <link rel="stylesheet" href="tamplate_1.css">
                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
                rel="stylesheet">
-        <link rel="stylesheet" href="plane.css">
+        <link rel="stylesheet" href="/css/tamplate_1.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <style>
@@ -40,21 +40,31 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6"> <span>CREDIT/DEBIT CARD PAYMENT</span> </div>
-                                    <div class="col-md-6 text-right" style="margin-top: -5px;"> <img src="https://img.icons8.com/color/36/000000/visa.png"> <img src="https://img.icons8.com/color/36/000000/mastercard.png"> <img src="https://img.icons8.com/color/36/000000/amex.png"> </div>
+                                    
                                 </div>
                             </div>
                             <div class="card-body" style="height: 420px">
-                                <div class="form-group"> <label for="cc-number" class="control-label">CARD NUMBER</label> <input id="cc-number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required> </div>
+                                <% if(jenis=="Hotel"){ %>
+                                    <form method="post" action='/accommodation/voucher-payment'>
+                                    <%}else{ %>
+                                     
+                                      <%}%>
+                                
+                                <div class="form-group"> <label for="cc-number" class="control-label">CARD NUMBER</label> <input id="cc-number" name="cardnumber" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required> </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <label for="cc-exp" class="control-label">CARD EXPIRY</label> <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required> </div>
+                                        <div class="form-group"> <label for="cc-exp" class="control-label">CARD EXPIRY</label> <input id="cc-exp" name="exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required> </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVC</label> <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••" required> </div>
+                                        <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVC</label> <input id="cc-cvc" name="cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••" required> </div>
                                     </div>
                                 </div>
-                                <div class="form-group"> <label for="numeric" class="control-label">CARD HOLDER NAME</label> <input type="text" class="input-lg form-control"> </div>
-                                <div class="form-group"> <a href="Voucher_pesawat.html"><input value="MAKE PAYMENT" type="button" class="btn btn-success btn-lg form-control" style="font-size: .8rem;"></a>  </div>
+                                <div class="form-group"> <label for="numeric" class="control-label">CARD HOLDER NAME</label> <input type="text" name="name" class="input-lg form-control"> </div>
+                                <button type="submit" class="btn btn-primary btn-lg form-control">Make Payment</button>
+                            <% if(locals.error) { %>
+                              <span class="text-danger pl-2" style="font-size: 2.2vh"><%=error %></span>
+                              <% } %>
+                            </form>
                             </div>
                         </div>
                     </div>

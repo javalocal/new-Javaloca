@@ -10,10 +10,19 @@ router.get('/signin', async (req, res) => {
     res.render('pages/signin',{jenis:"login"});
 })
 
-router.get('/signup', async (req, res) => {
-    res.render('pages/account');
+router.get('/signin_/:jenis', async (req, res) => {
+    const jenis_=req.params.jenis;
+    res.render('pages/signin',{jenis:jenis});
 })
 
+router.get('/signup', async (req, res) => {
+    res.render('pages/account', {jenis:"register"});
+})
+
+router.get('/signup_/:jenis', async (req, res) => {
+    const tipe=req.params.jenis;
+    res.render('pages/account', {jenis:tipe});
+})
 router.get('/logout', async (req, res) => {
     req.session.isLoggedIn = false;
     res.redirect('/');
@@ -25,14 +34,17 @@ router.post('/login', async (req,res) => {
     const password_ = req.body.password;
     var emailok;
     var passwordok;
+    var id;
     data = await User.find({email:email_});
     await data.forEach((account)=>{
         emailok=account.email;
         passwordok=account.password;
+        id=account._id;
     });
     if(email_==emailok){
         if(password_==passwordok){
             req.session.isLoggedIn = true;
+            req.session.idAccount =id; 
             res.redirect('/');  
         }else{
             res.render('pages/signin', {jenis:"login",error: 'Wrong Password'});
@@ -56,10 +68,10 @@ router.post('/register', async (req,res) => {
         email_=account.email;
     })
     if(email==email_){
-        res.render('pages/account', {error: 'Email sudah terdaftar'});
+        res.render('pages/account', {jenis:"register",error: 'Email sudah terdaftar'});
     }else{
         if (password != password_) {
-            res.render('pages/account', {error: 'Password tidak sama!'})
+            res.render('pages/account', {jenis:"register", error: 'Password tidak sama!'})
         }
         else {
             const user = new User ({
@@ -72,7 +84,7 @@ router.post('/register', async (req,res) => {
                 if (err) console.error(err);
                 else {
                     console.log('Sign In berhasil!');
-                    req.session.login = user.id;
+                    req.session.idAccount = user.id;
                 }
             })
             req.session.isLoggedIn = true;

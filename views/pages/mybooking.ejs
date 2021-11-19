@@ -30,7 +30,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th data-sortable="true">Nama Customers</th>
-                      <th data-sortable="true">Nama Hotel</th>
+                      <th data-sortable="true">Nama Hotel/Villa</th>
                       <th data-sortable="true">Tanggal cek-in</th>
                       <th data-sortable="true">Tanggal cek-out</th>
                       <th scope="col">Alamat Hotel </th>
@@ -38,24 +38,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% data.forEach((data) => { %>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Lorem Impsum</td>
-                      <td>Grand Mahakam</td>
-                      <td>25/12/21</td>
-                      <td>26/12/21</td>
-                      <td>Jakarta</td>
-                      <td><a href="voucherch_hotel.html">Link</a></td>
+                      <th scope="row">#</th>
+                      <td><%= data.name %></td>
+                      <td><%= data.akomodasi %></td>
+                      <td><%= data.checkin %></td>
+                      <td><%= data.checkout %></td>
+                      <td><%= data.alamat_akomo %></td>
+                      <td><a href="/mybook/voucher-accomodation/<%= data._id %>">Link</a></td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Lorem Impsum</td>
-                      <td>Ibis Budget</td>
-                      <td>30/12/21</td>
-                      <td>01/01/22</td>
-                      <td>Bandung</td>
-                      <td>Link</td>
-                    </tr>
+                    <% }) %> 
                    
                   </tbody>
               </table>

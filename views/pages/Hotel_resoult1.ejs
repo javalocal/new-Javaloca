@@ -30,7 +30,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Hotel</th>
+                    <th scope="col"><%=data.jenis%></th>
                     <% if(data.jenis=="Hotel"){ %>
                     <th scope="col">Jenis Kamar</th>
                     <%}%>
@@ -57,7 +57,7 @@
               <div class="d-flex flex-column bd-highlight p-3" style="justify-content: center;align-items: center;">
                 <div class="p-2 bd-highlight " style="text-align: center;"><h4>Total IDR <%=jum%></h4></div>
                 <div class="p-2 bd-highlight">
-                  <a href="/accommodation/payment/<%=data.jenis%>" class="btn btn-primary btn-lg" type="button" data-toggle="tooltip">Booking</a>
+                  <a href="/accommodation/payment" class="btn btn-primary btn-lg" type="button" data-toggle="tooltip">Booking</a>
                 </div>
               </div>
             
