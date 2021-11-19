@@ -2,6 +2,7 @@ const e = require('express')
 const express = require('express')
 const router = express.Router()
 const transport = require('../models/transport')
+var confirmation=require('./model')
 
 router.get('/plane', (req, res) => {
     res.render('pages/plane')
@@ -35,6 +36,7 @@ if(From == To){
 const date =req.body.dateplane;
 
 const date_=datestring(date);
+
     if (date == null || date=='') {
         res.render('pages/plane', {error: 'Tanggal tidak valid'})
     }
@@ -74,7 +76,7 @@ router.post('/train-results', async(req,res) => {
     
     })
 
-    router.get('/confirmatio/:id', (req, res) => {
+    router.get('/confirmation/:id', (req, res) => {
         const id = req.params.id;
         const data = await transport.find({_id:id});
         await data.forEach((transport)=>{
