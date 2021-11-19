@@ -111,9 +111,9 @@ router.post(('/voucher-payment'), async(req,res) =>{
     var nam;
     var email;
     var lokasi;
-    var date =new Date();
-    data=await User.find({id:id});
-    console.log(data);
+    var date_ =new Date();
+    const data_=await User.find({_id:id});
+    console.log(data_);
     await data_.forEach((account)=>{
         nam=account.name;
         email=account.email;
@@ -146,7 +146,7 @@ router.post(('/voucher-payment'), async(req,res) =>{
                         console.log("berhasil");
                     }
                 });
-                res.render('pages/voucher-accomodation',{data:data_baru,type:"newvoucher"});
+                res.render('pages/voucher-accomodation',{data:data_baru, type:"newvoucher"});
             }else{
                 res.render('pages/payment', {jenis:"Hotel",error: 'Warning Name null'});
             }

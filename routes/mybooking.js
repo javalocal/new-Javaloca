@@ -6,10 +6,11 @@ const router = express.Router()
 router.get(('/'), async(req, res) => {
     const id=req.session.idAccount;
     var email;
-    const data_= await User.find({id:id});
-   await data.forEach((account)=>{
+    const data_= await User.find({_id:id});
+   await data_.forEach((account)=>{
        email=account.email;
    })
+   console.log(data_)
    const data=await booking.find({email:email})
    console.log(data);
     res.render('pages/mybooking',{data:data});

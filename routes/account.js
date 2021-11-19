@@ -29,13 +29,12 @@ router.get('/logout', async (req, res) => {
 })
 
 router.post('/login', async (req,res) => {
-    const jenis = req.params.jenis;
     const email_ = req.body.email;
     const password_ = req.body.password;
     var emailok;
     var passwordok;
     var id;
-    data = await User.find({email:email_});
+    const data = await User.find({email:email_});
     await data.forEach((account)=>{
         emailok=account.email;
         passwordok=account.password;
@@ -45,6 +44,7 @@ router.post('/login', async (req,res) => {
         if(password_==passwordok){
             req.session.isLoggedIn = true;
             req.session.idAccount =id; 
+            console.log(id);
             res.redirect('/');  
         }else{
             res.render('pages/signin', {jenis:"login",error: 'Wrong Password'});
@@ -63,7 +63,7 @@ router.post('/register', async (req,res) => {
     const password = req.body.password;
     const password_ = req.body.confirm;
     
-    data = await User.find({email:email});
+    const data = await User.find({email:email});
     await data.forEach((account) => {
         email_=account.email;
     })
