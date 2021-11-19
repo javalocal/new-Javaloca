@@ -162,7 +162,71 @@ router.post(('/voucher-payment'), async(req,res) =>{
        
 })
 
+router.post('/signin/:jenis', async (req,res) => {
+    const jenis = req.params.jenis;
+    const email_ = req.body.email;
+    const password_ = req.body.password;
+    var emailok;
+    var passwordok;
+    var id;
+    data = await User.find({email:email_});
+    await data.forEach((account)=>{
+        emailok=account.email;
+        passwordok=account.password;
+        id=account._id;
+    });
+    if(email_==emailok){
+        if(password_==passwordok){
+            req.session.isLoggedIn = true;
+            req.session.idAccount =id; 
+            res.redirect('/accommodation/payment');  
+        }else{
+            res.render('pages/signin', {jenis:jenis,error: 'Wrong Password'});
+        }
+    }else{
+        res.render('pages/signin', {jenis:jenis,error: 'Wrong Password or Email'});
+    }
+})
 
+router.post('/register/:jenis', async (req,res) => {
+    const jenis_=req.params.jenis;
+    const name = req.body.name;
+    const address = req.body.address;
+    const email = req.body.email;
+    var email_;
+    const password = req.body.password;
+    const password_ = req.body.confirm;
+    
+    data = await User.find({email:email});
+    await data.forEach((account) => {
+        email_=account.email;
+    })
+    if(email==email_){
+        res.render('pages/account', {jenis:jenis_ ,error: 'Email sudah terdaftar'});
+    }else{
+        if (password != password_) {
+            res.render('pages/account', {jenis:jenis_, error: 'Password tidak sama!'})
+        }
+        else {
+            const user = new User ({
+                name: name,
+                email: email,
+                address: address,
+                password: password
+            });
+            await user.save((err, res) => {
+                if (err) console.error(err);
+                else {
+                    console.log('Sign In berhasil!');
+                    req.session.idAccount = user.id;
+                }
+            })
+            req.session.isLoggedIn = true;
+            res.redirect('/accommodation/payment');
+        }
+    }
+    
+})
 
 
 

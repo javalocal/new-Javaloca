@@ -14,24 +14,14 @@ mongoose.connect(('mongodb+srv://admin:12345@javaloca.wdxsx.mongodb.net/javaloca
 
 const products = [
     new Akomodasi({
-        jenis: 'hotel',
-        gambar: '/img/hotel_2.jpeg',
-        name: 'Vasa Hotel Surabaya ',
+        jenis: 'villa',
+        gambar: '/img/villa_1.jpeg',
+        name: 'Comfy House near Airport',
         lok: 'surabaya',
-        lokasi: ' Jalan HR Muhammad No 31, Sukomanunggal, Surabaya, Jawa Timur',
-        harga: 889350,
-        bintang: "5",
-        kode: "sby4",
-    }),
-    new Akomodasi({
-        jenis: 'hotel',
-        gambar: '/img/hotel_3.jpeg',
-        name: 'Grand darmo Surabaya ',
-        lok: 'surabaya',
-        lokasi: ' Jl. Progo ,Wonokromo, Surabaya, Jawa Timur',
-        harga: 480000,
+        lokasi: ' Jalan Haji Syukur VII, Perumahan Airport Village No.A10, Sedati , Sedati, Surabaya, Jawa Timur',
+        harga: 950000,
         bintang: "4",
-        kode: "sby5",
+        kode: "sby2",
     }),
   
     
