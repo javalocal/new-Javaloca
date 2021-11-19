@@ -14,7 +14,7 @@ module.exports = function conf() {
 
     }
        
-    this.getakomodasi=function(name,kelas,tujuan,dari,bagasi,harga,jenis){
+    this.gettransport=function(name,kelas,tujuan,dari,bagasi,harga,jenis){
 
         this.name=name;
         this.class=kelas;
