@@ -103,7 +103,22 @@ router.get(('/payment'), async(req,res) =>{
 })
 
 router.post(('/voucher-payment'), async(req,res) =>{
-  
+    const cardnum=req.body.cardnumber;
+    const exp=req.body.exp;
+    const cvc=req.body.cvc;
+    const name=req.body.name;
+    const id=req.session.idAccount;
+    var nam;
+    var email;
+    var lokasi;
+    var date =new Date();
+    data=await User.find({id:id});
+    console.log(data);
+    await data_.forEach((account)=>{
+        nam=account.name;
+        email=account.email;
+        lokasi=account.address;
+    })
    if(cardnum != null || cardnum !=""){
     if(exp != null || exp !=""){
         if(cvc!=null || cvc!=""){
