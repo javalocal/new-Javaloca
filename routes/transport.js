@@ -98,7 +98,81 @@ router.post('/train-results', async(req,res) => {
 
     
 
-   
+    router.get(('/payment'), async(req,res) =>{
+        const jenis = "Pesawat";
+        if(req.session.isLoggedIn){
+            res.render('pages/payment',{jenis:jenis}); 
+        }
+        else{
+            res.render('pages/signin',{jenis:jenis});
+        }
+           
+    })
+
+    router.post(('/voucher-payment'), async(req,res) =>{
+        const cardnum=req.body.cardnumber;
+        const exp=req.body.exp;
+        const cvc=req.body.cvc;
+        const name=req.body.name;
+        const id=req.session.idAccount;
+        var nam;
+        var email;
+        var lokasi;
+        var date_ =new Date();
+        const data_=await User.find({_id:id});
+        console.log(data_);
+        await data_.forEach((account)=>{
+            nam=account.name;
+            email=account.email;
+            lokasi=account.address;
+        })
+       if(cardnum != null || cardnum !=""){
+        if(exp != null || exp !=""){
+            if(cvc!=null || cvc!=""){
+                if(name!=null|| name!=""){
+                    
+                    const data =trans.transportArray();
+                    console.log(data);
+                    const data_baru= new booking ({
+                    email:email,
+                    account:nam,
+                    lokasi:lokasi,
+                    tanggalNew:datestring(date_),
+                    jenis:data.jenis,
+                    name:data.name,
+                    kelas:data.kelas,
+                    asal:data.dari,
+                    tujuan:data.tujuan,
+                    bagasi:data.bagasi,
+                    tanggal:data.tanggal,
+                    waktu_from:data.waktu_from,
+                    waktu_to:data.waktu_to,
+                    kode:data.kode,
+                    type:data.type,
+                    bagasi:data.bagasi
+                    })
+                    console.log(data_baru);
+                    await data_baru.save((err, res) => {
+                        if (err) console.error(err);
+                        else {
+                            console.log("berhasil");
+                        }
+                    });
+                    res.render('pages/voucher-transport',{data:data_baru, type:"newvoucher"});
+                }else{
+                    res.render('pages/payment', {jenis:"Hotel",error: 'Warning Name null'});
+                }
+            }else{
+                res.render('pages/payment', {jenis:"Hotel",error: 'Warning CVC null'});
+            }
+        }else{
+            res.render('pages/payment', {jenis:"Hotel",error: 'Warning Exp Card null'});
+        }
+       }else{
+        res.render('pages/payment', {jenis:"Hotel",error: 'Warning Card Number null'});
+       }
+           
+    })
 
   
 module.exports = router;
