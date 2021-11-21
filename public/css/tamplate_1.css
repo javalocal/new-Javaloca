@@ -171,6 +171,11 @@ footer{
        text-align: center;
    }
 
+   .img-vac{
+    height: 75px;
+    width: 125px;
+}
+
 }
 
 @media only screen and (max-width: 380px){
