@@ -23,6 +23,12 @@ router.get(('/voucher-accomodation/:id'), async(req, res) => {
    console.log(data);
    res.render('pages/voucher-accomodation',{data:data, type:"oldvoucher"});
 })
+router.get(('/voucher-transport/:id'), async(req, res) => {
+    const id=req.params.id;
+   const data=await transport.find({_id:id})
+   console.log(data);
+   res.render('pages/voucher-transport',{data:data, type:"oldvoucher"});
+})
 
 
 
