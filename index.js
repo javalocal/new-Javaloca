@@ -40,6 +40,7 @@ const transprtRouter =require('./routes/transport');
 const promoRouter= require('./routes/promo');
 const akomodasiRouter= require('./routes/Hotelbooking');
 const mybookRouter=require('./routes/mybooking');
+const userRouter=require('./routes/user');
 
 app.use('/', indexRouter);
 app.use('/account', accountRouter);
@@ -48,6 +49,7 @@ app.use('/transport', transprtRouter);
 app.use('/promo', promoRouter);
 app.use('/accommodation', akomodasiRouter);
 app.use('/mybook', mybookRouter);
+app.use('/user',userRouter);
 
 const port = process.env.PORT || 3000
 app.listen(port, ()=> {

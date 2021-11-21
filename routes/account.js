@@ -95,9 +95,5 @@ router.post('/register', async (req,res) => {
     
 })
 
-router.post('/userupdate', async(req,res) => {
-    
-    })
-
 
 module.exports = router;
