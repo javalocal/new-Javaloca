@@ -49,6 +49,7 @@ app.use('/promo', promoRouter);
 app.use('/accommodation', akomodasiRouter);
 app.use('/mybook', mybookRouter);
 
-app.listen('3000', ()=> {
+const port = process.env.PORT || 3000
+app.listen(port, ()=> {
     console.log('Server sudah berjalan di port 3000')
 })
