@@ -228,12 +228,7 @@ router.post('/register/:jenis', async (req,res) => {
                     
                 }
             })
-            const ss=await User.find({email:email})
-            await ss.forEach((ss)=>{
-                req.session.idAccount=ss._id;
-            })
-            req.session.isLoggedIn = true;
-            res.render('pages/payment',{jenis:jenis});  
+            res.render('pages/signin',{jenis:jenis_}); 
         }
     }
     

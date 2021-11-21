@@ -89,12 +89,7 @@ router.post('/register', async (req,res) => {
                 }
             }) 
             const ss=await User.find({email:email})
-            await ss.forEach((ss)=>{
-                req.session.idAccount=ss._id;
-            })
-            req.session.isLoggedIn = true;
-            
-            res.redirect('/');
+            res.redirect('/account/signin');
         }
     }
     
