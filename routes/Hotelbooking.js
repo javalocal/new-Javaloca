@@ -33,10 +33,14 @@ router.post(('/hotel-results'), async(req,res) => {
 const location =req.body.location;
 var malam = req.body.malam;
 const date = req.body.checkin;
+if (date == null || date=='') {
+    res.render('pages/Hotelbooking', {error: 'Tanggal tidak valid'})
+}
+const user=User.find({_id:req.session.idAccount});
+console.log(req.session.idAccount);
 var date_=new Date(date);
 const cekout=date_.addDays(parseInt(malam));
 book.bookinginfo((parseInt(malam)),(datestring(date_)),(datestring(cekout)));
-console.log(book.checkin);
 
 var data = await akomodasi.find({lok:location, jenis:"Hotel"});
 var kmr = await kamar.find();
@@ -48,6 +52,9 @@ router.post(('/villa-results'), async(req,res) => {
     const location =req.body.location;
     var malam = req.body.malam;
     const date = req.body.checkin;
+    if (date == null || date=='') {
+        res.render('pages/villa', {error: 'Tanggal tidak valid'})
+    }
     var date_=new Date(date);
     const cekout=date_.addDays(parseInt(malam));
     book.bookinginfo((parseInt(malam)),(datestring(date_)),(datestring(cekout)));
@@ -179,7 +186,7 @@ router.post('/signin/:jenis', async (req,res) => {
         if(password_==passwordok){
             req.session.isLoggedIn = true;
             req.session.idAccount =id; 
-            res.redirect('/accommodation/payment');  
+            res.render('pages/payment',{jenis:jenis});  
         }else{
             res.render('pages/signin', {jenis:jenis,error: 'Wrong Password'});
         }
@@ -218,11 +225,15 @@ router.post('/register/:jenis', async (req,res) => {
                 if (err) console.error(err);
                 else {
                     console.log('Sign In berhasil!');
-                    req.session.idAccount = user.id;
+                    
                 }
             })
+            const ss=await User.find({email:email})
+            await ss.forEach((ss)=>{
+                req.session.idAccount=ss._id;
+            })
             req.session.isLoggedIn = true;
-            res.redirect('/accommodation/payment');
+            res.render('pages/payment',{jenis:jenis});  
         }
     }
     

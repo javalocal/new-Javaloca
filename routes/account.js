@@ -12,7 +12,7 @@ router.get('/signin', async (req, res) => {
 
 router.get('/signin_/:jenis', async (req, res) => {
     const jenis_=req.params.jenis;
-    res.render('pages/signin',{jenis:jenis});
+    res.render('pages/signin',{jenis:jenis_});
 })
 
 router.get('/signup', async (req, res) => {
@@ -60,6 +60,7 @@ router.post('/register', async (req,res) => {
     const address = req.body.address;
     const email = req.body.email;
     var email_;
+    var id;
     const password = req.body.password;
     const password_ = req.body.confirm;
     
@@ -84,10 +85,15 @@ router.post('/register', async (req,res) => {
                 if (err) console.error(err);
                 else {
                     console.log('Sign In berhasil!');
-                    req.session.idAccount = user.id;
+                  
                 }
+            }) 
+            const ss=await User.find({email:email})
+            await ss.forEach((ss)=>{
+                req.session.idAccount=ss._id;
             })
             req.session.isLoggedIn = true;
+            
             res.redirect('/');
         }
     }

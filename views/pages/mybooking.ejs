@@ -29,6 +29,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
+                      <th data-sortable="true">Jenis</th>
                       <th data-sortable="true">Nama Customers</th>
                       <th data-sortable="true">Nama Hotel/Villa</th>
                       <th data-sortable="true">Tanggal cek-in</th>
@@ -41,6 +42,7 @@
                     <% data.forEach((data) => { %>
                     <tr>
                       <th scope="row">#</th>
+                      <td><%= data.jenis %></td>
                       <td><%= data.name %></td>
                       <td><%= data.akomodasi %></td>
                       <td><%= data.checkin %></td>
@@ -63,6 +65,7 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
+                  <th data-sortable="true">Jenis</th>
                   <th data-sortable="true">Nama Customers</th>
                   <th data-sortable="true">Nama airplane/train</th>
                   <th data-sortable="true">Tanggal</th>
@@ -73,26 +76,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Lorem Impsum</td>
-                  <td>Sriwiaja</td>
-                  <td>25/12/21</td>
-                  <td>12:00 pm</td>
-                  <td>Jakarta, Soekarno Hatta CGK</td>
-                  <td>Semarang, Jendral Ahmad SRG </td>
-                  <td><a href="Voucher_pesawat.html">Link</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Impsum bin lorem</td>
-                  <td>Gajayana</td>
-                  <td>30/12/21</td>
-                  <td>13:37 pm</td>
-                  <td>Malang, Malang kotalama</td>
-                  <td>Jakarta, Gambir</td>
-                  <td><a href="Voucher_kereta.html">Link</a></td>
-                </tr>
+                <% data_.forEach((data_) => { %>
+                  <tr>
+                    <th scope="row">#</th>
+                    <td><%= data_.jenis %></td>
+                    <td><%= data_.account %></td>
+                    <td><%= data_.name %></td>
+                    <td><%= data_.tanggal %></td>
+                    <td><%= data_.waktu_from %>/<%=data_.waktu_to%></td>
+                    <td><%= data_.asal %></td>
+                    <td><%= data_.tujuan %></td>
+                    <td><a href="/mybook/voucher-transport/<%= data_._id %>">Link</a></td>
+                  </tr>
+                  <% }) %> 
                
               </tbody>
           </table>

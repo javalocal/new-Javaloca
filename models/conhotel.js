@@ -22,6 +22,7 @@ this.jenis;
       this.lokasi=lokasi;
       this.jenis=jenis;
       this.harga=harga;
+      this.kamar='kamar';
     }
 
     this.booking=function(hotel,lokasi,jenis){
@@ -30,14 +31,9 @@ this.jenis;
       this.jenis=jenis;
     }
     this.createArray = function(){
-      if (this.jenis=="Hotel"){
         var arr = {cekin:this.checkin,cekout:this.checkout,
           kamar:this.kamar,harga:this.harga,
           hotel:this.hotel,lokasi:this.lokasi,jenis:this.jenis,lama:this.lama};
-      }else{
-        var arr = {cekin:this.checkin,cekout:this.checkout,harga:this.harga,
-          hotel:this.hotel,lokasi:this.lokasi,jenis:this.jenis,lama:this.lama};
-      }
       
       return arr;
     }
