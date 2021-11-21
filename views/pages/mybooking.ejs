@@ -22,10 +22,15 @@
     <br>
 
     <div class="container-fluid p-5">
+      <% if(data=='' && data_==''){ %>
+        <h4 class="text-center">Tidak Booking</h4>
+          <%}else{%>
+            <% if(data.length>0){ %>
         <div class="row mb-4">
         	<div class="col mx-3">
             	<h4 class="my-2">Hotel & villa</h4>
-                <table class="table-responsive-sm" data-toggle="table" data-pagination="true" data-search="true">
+              <div class="table-responsive-sm">
+                <table class="table" data-toggle="table" data-pagination="true" data-search="true">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -54,14 +59,17 @@
                    
                   </tbody>
               </table>
+              </div>
             </div>
         </div>
-    
-<br><br>
+        <%}%>
+
+        <% if(data_.length>0){ %>
     <div class="row mb-4">
       <div class="col mx-3">
           <h4 class="my-2">Airplane & train</h4>
-            <table class="table-responsive-sm" data-toggle="table" data-pagination="true" data-search="true">
+          <div class="table-responsive-sm">
+            <table class="table" data-toggle="table" data-pagination="true" data-search="true">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -92,8 +100,11 @@
                
               </tbody>
           </table>
+          </div>
         </div>
     </div>
+    <%}%>
+    <%}%>
 </div>
 
 <%- include('../layouts/footer.ejs'); %>
